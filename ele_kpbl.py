@@ -28,9 +28,12 @@ def generate_random_string(length=50):
 def get_ck_usid(ck1):
     key_value_pairs = ck1.split(";")
     for pair in key_value_pairs:
-        key, value = pair.split("=")
-        if key == "USERID":
-            return value
+        if pair in "USERID":
+            key, value = pair.split("=")
+            if key == "USERID":
+                return value
+            else:
+                return '账号'
         else:
             return '账号'
 
